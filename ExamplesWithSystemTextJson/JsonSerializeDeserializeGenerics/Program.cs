@@ -1,5 +1,4 @@
 ﻿using System.Text.Json;
-using ExampleDotnetSerializeDeserializeJson;
 
 static WeatherForecast ExampleSerializeObject()
 {
@@ -86,7 +85,7 @@ static string ExampleDeserializeJsonString()
 
 Console.WriteLine(SerializeJson<WeatherForecast>(ExampleSerializeObject()));
 Console.WriteLine("");
-var orders = DeserializeJson<List<Orders>>(ExampleDeserializeJsonString());
+var orders = DeserializeJson<List<Order>>(ExampleDeserializeJsonString());
 orders.ForEach(x =>
 {
     Console.WriteLine(x.Id);
