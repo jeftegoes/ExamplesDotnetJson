@@ -1,0 +1,55 @@
+<mxfile host="Electron" modified="2024-03-30T02:40:42.749Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.1.0 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="S5jGXAU3PsdUpRIG5kCl" version="24.1.0" type="device">
+  <diagram name="Page-1" id="3MpXuszUgL3vHetB4U5a">
+    <mxGraphModel dx="1084" dy="951" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="vNaWxT1Gg9VHBUWmZr-P-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="vNaWxT1Gg9VHBUWmZr-P-10" target="vNaWxT1Gg9VHBUWmZr-P-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vNaWxT1Gg9VHBUWmZr-P-10" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="374.71" y="264.5" width="140.58" height="129" as="geometry" />
+        </mxCell>
+        <mxCell id="vNaWxT1Gg9VHBUWmZr-P-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="vNaWxT1Gg9VHBUWmZr-P-1" target="vNaWxT1Gg9VHBUWmZr-P-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vNaWxT1Gg9VHBUWmZr-P-1" value="API team" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.users;" vertex="1" parent="1">
+          <mxGeometry x="200" y="140" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="vNaWxT1Gg9VHBUWmZr-P-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="vNaWxT1Gg9VHBUWmZr-P-3" target="vNaWxT1Gg9VHBUWmZr-P-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vNaWxT1Gg9VHBUWmZr-P-3" value="DB team" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.users;" vertex="1" parent="1">
+          <mxGeometry x="200" y="440" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="vNaWxT1Gg9VHBUWmZr-P-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="vNaWxT1Gg9VHBUWmZr-P-4" target="vNaWxT1Gg9VHBUWmZr-P-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vNaWxT1Gg9VHBUWmZr-P-4" value="UI team" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.users;" vertex="1" parent="1">
+          <mxGeometry x="200" y="290" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="vNaWxT1Gg9VHBUWmZr-P-6" value="Single codebase" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.source_code;" vertex="1" parent="1">
+          <mxGeometry x="420.89" y="290" width="48.22" height="66" as="geometry" />
+        </mxCell>
+        <mxCell id="vNaWxT1Gg9VHBUWmZr-P-7" value="Github" style="dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=top;verticalAlign=bottom;shape=mxgraph.weblogos.github" vertex="1" parent="1">
+          <mxGeometry x="480" y="240" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vNaWxT1Gg9VHBUWmZr-P-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="vNaWxT1Gg9VHBUWmZr-P-14" target="vNaWxT1Gg9VHBUWmZr-P-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vNaWxT1Gg9VHBUWmZr-P-14" value="Github Action (CI/CD)" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://static-00.iconduck.com/assets.00/githubactions-icon-2048x2048-ipqow27x.png;" vertex="1" parent="1">
+          <mxGeometry x="600" y="299" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vNaWxT1Gg9VHBUWmZr-P-17" value="SGDB" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="970" y="289" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="vNaWxT1Gg9VHBUWmZr-P-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="vNaWxT1Gg9VHBUWmZr-P-19" target="vNaWxT1Gg9VHBUWmZr-P-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vNaWxT1Gg9VHBUWmZr-P-19" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 16px; font-weight: 700;&quot;&gt;Application Server&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 16px; font-weight: 700;&quot;&gt;IIS / Tomcat / NodeJS&lt;/span&gt;&lt;/div&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.traditional_server;" vertex="1" parent="1">
+          <mxGeometry x="790" y="290" width="45" height="78" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

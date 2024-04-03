@@ -23,6 +23,19 @@
 - [4. Choosing the Right Architecture for your Application](#4-choosing-the-right-architecture-for-your-application)
   - [4.1. Design for Business Requirements](#41-design-for-business-requirements)
   - [4.2. -Ilities](#42--ilities)
+- [5. Monolithic Architecture](#5-monolithic-architecture)
+  - [5.1. What is Monolithic Architecture?](#51-what-is-monolithic-architecture)
+  - [5.2. When to use Monolithic Architecture](#52-when-to-use-monolithic-architecture)
+  - [5.3. Benefits of Monolithic Architecture](#53-benefits-of-monolithic-architecture)
+  - [5.4. Challenges of Monolithic Architecture](#54-challenges-of-monolithic-architecture)
+  - [5.5. Design principles - KISS, YAGNI, DRY](#55-design-principles---kiss-yagni-dry)
+  - [5.6. Assessment Monolithic Architecture](#56-assessment-monolithic-architecture)
+- [6. Layered (N-Layer) Architecture](#6-layered-n-layer-architecture)
+  - [6.1. Components of a Layered Architecture](#61-components-of-a-layered-architecture)
+  - [6.2. Design principles - Separation of Concerns (SoC)](#62-design-principles---separation-of-concerns-soc)
+  - [6.3. Design principles - SOLID](#63-design-principles---solid)
+  - [6.4. Layered Monolithic Architecture evolution](#64-layered-monolithic-architecture-evolution)
+  - [6.5. Assessment Layered Monolithic Architecture](#65-assessment-layered-monolithic-architecture)
 
 # 1. Evolution of Software Architectures
 
@@ -258,3 +271,143 @@
 - Security
 - Flexibility
 - Performance
+
+# 5. Monolithic Architecture
+
+## 5.1. What is Monolithic Architecture?
+
+- Traditional approach to software development.
+- Developing a complete application as a **single unit**.
+- Most of legacy applications are mainly implemented as a monolithic architecture.
+- Developed **single codebase**.
+- UI, Business and DB calls is in **same codebase**.
+- All application ships with single big deployment with single jar/war/dll file.
+- Can't say old style arcitecture, still valid for particular scenarios.
+- **Advantages:** Easy to get start and debug.
+- **Disadvantages:** Difficult to manage, Hard to implement new features.
+
+![Develop and implement in a team](/Images/MonolithicArchitectureDevelopImplementTeam.png)
+
+## 5.2. When to use Monolithic Architecture
+
+- If you are building small application, still monolithic architecture is one of the best architecture.
+- They're straightforward to:
+  - Build.
+  - Test.
+  - Deploy.
+  - Troubleshoot.
+  - Scale vertically (scale up).
+  - **Simple to develop relative** to microservices.
+  - **Easier to deploy** as only a single jar/war/dll file.
+- **Others aspects**
+  - **Small team at Founding Stage**
+    - If you are a startup and your team is small like 2 to 5 members, you don't need to deal with the complexity of the high-overhead microservices architecture.
+  - **Simple application with Predictable Scale and Complexity**
+    - If your application doesn't require advanced scalability and the complexity is manageable, then a monolith architecture is the best option to start.
+  - **Proof of Concept and Quick Launch**
+    - Building a proof of concept, like testing a new idea on market, that means your new products will pivot and evolve a lot over time, when you figure out what will be useful to your users.
+  - **No Microservices Expertise**
+    - If your team has no prior experience with microservices architecture, that will really hard to ship your application effectively and timely.
+
+## 5.3. Benefits of Monolithic Architecture
+
+- **Simple to develop**
+  - As long as the monolithic approach is a standard way of building applications, any engineering team has the right knowledge and capabilities to develop a monolithic application.
+- **Easier debugging and testing**
+  - Monolithic applications are much easier to debug and test.
+  - Since a monolithic application has a single code base, we can run end to-end testing much faster.
+- **Simple to deploy**
+  - When it comes to monolithic applications, you do not have to handle many deployments, just one file or directory.
+  - Easier to deploy as only a single jar/war/dll file is deployed.
+
+## 5.4. Challenges of Monolithic Architecture
+
+- **Become Complex over time - Hard to Understand**
+  - It becomes too large in size with time and that's why its difficult to manage.
+  - Application grows with adding new functionalities, a monolithic codebase can become extremely large and complex.
+- **Hard to Making New changes**
+  - It is harder to implement new changes in such a large and complex application with highly tight coupling.
+  - Any code change affects the whole system.
+- **Barrier to new technology adoption**
+  - It is extremely problematic to apply a new technology because the entire application has to be re development due to the interlocking dependencies found in a monolith.
+- **Difficult to Scale**
+  - You can't scale components independently, the only option is the scaling the whole application. You can't scale individual components.
+
+## 5.5. Design principles - KISS, YAGNI, DRY
+
+[Design principles](<[https://](https://github.com/jeftegoes/SolidDesignPrinciplesOverviewAndExamples?tab=readme-ov-file#4-design-principles)>)
+
+## 5.6. Assessment Monolithic Architecture
+
+![Monolithic Architecture](/Images/MonolithicArchitecture.png)
+
+- **Benefits**
+  - Easy Development.
+  - Easy Debug and Test.
+  - Easy to Deploy.
+- **Drawbacks**
+  - Highly tight coupling.
+  - Hard to Splitting the code.
+  - Violate Separation of concerns.
+  - Interlocking Dependencies without Layers of isolation.
+- **Solutions**
+  - Separate UI, Business and Data Layers as logical layers.
+  - Layered Architecture.
+  - SOLID Design.
+
+# 6. Layered (N-Layer) Architecture
+
+- The layered architecture pattern is the most commonly used architecture pattern.
+- Known as the **n-tier architecture style** or **the multi-layered architecture style**.
+- Organize the components of an application with similar functionalities into **horizontal logical layers**.
+  - Each layer performs a specific role within the application.
+- Still using Monolithic architecture separating horizontal logical layers, components are interconnected but **don't depend** on each other. **(Attention point)**
+- Organizing code for **separation of concerns (SoC)**.
+- **Layers of isolation** that layers can be modified and the change won't affect other layers.
+
+## 6.1. Components of a Layered Architecture
+
+- **Presentation Layer**
+  - Responsible for user interactions with the software system, for example, a web app.
+- **Application/Business Layer**
+  - Handles aspects related to accomplishing functional requirements including use case implementations.
+- **Database Layer**
+  - Responsible for handling data, databases, such as a SQL database.
+
+![Layered Architecture](/Images/NLayerArchitecture.png)
+
+## 6.2. Design principles - Separation of Concerns (SoC)
+
+- **Separation of concerns(SoC)** is one of the core software design principle.
+- Separation of concerns is a design principle for separating a computer program into **distinct sections**.
+- **Isolate** the software application into separate sections, manages complexity by partitioning the software system.
+- Distinguish between the concepts of layer and tiers with certain responsibilities.
+- Elements in the software should be **unique**.
+- Limits to allocate responsibilities.
+- Low-coupling, high-cohesion.
+
+![Separation of Concerns other points of view](/Images/SeparationConcernsOtherPointsOfView.png)
+
+## 6.3. Design principles - SOLID
+
+[SOLID](https://github.com/jeftegoes/SolidDesignPrinciplesOverviewAndExamples)
+
+## 6.4. Layered Monolithic Architecture evolution
+
+![Layered Monolithic Architecture evolution](/Images/MonolithicArchitectureEvolution.png)
+
+## 6.5. Assessment Layered Monolithic Architecture
+
+- **Benefits**
+  - Easy Development, Debug and Deploy.
+  - Horizontal Logical Layers.
+  - Separation of Concerns.
+- **Drawbacks**
+  - Layers Dependent each other.
+  - Highly Coupling.
+  - Hard to maintanance.
+  - Complexity of codebase.
+  - Hard to Change libraries; i.e. Change orm tool with different library Requires to modify business layer.
+- **Solutions**
+  - Clean Architecture.
+  - The Dependecy Rule.
