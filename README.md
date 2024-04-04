@@ -36,6 +36,13 @@
   - [6.3. Design principles - SOLID](#63-design-principles---solid)
   - [6.4. Layered Monolithic Architecture evolution](#64-layered-monolithic-architecture-evolution)
   - [6.5. Assessment Layered Monolithic Architecture](#65-assessment-layered-monolithic-architecture)
+- [7. Clean Architecture](#7-clean-architecture)
+  - [7.1. The Dependency Rule](#71-the-dependency-rule)
+  - [7.2. Layers of Clean Architecture](#72-layers-of-clean-architecture)
+  - [7.3. Benefits of Clean Architecture](#73-benefits-of-clean-architecture)
+  - [7.4. Assessment Layered Monolithic Architecture](#74-assessment-layered-monolithic-architecture)
+- [8. Vertical Slice Architecture](#8-vertical-slice-architecture)
+- [9. MVC, MVP \& MVVM](#9-mvc-mvp--mvvm)
 
 # 1. Evolution of Software Architectures
 
@@ -173,9 +180,9 @@
 ## 3.10. Manage Consistency Across Microservices in Distributed Transactions
 
 - **Considerations**
-  - Distributed Transactions that required to visit several microservices ?
-  - Consistency across multiple microservices ?
-  - Rollback transaction and run compensating steps ?
+  - Distributed Transactions that required to visit several microservices?
+  - Consistency across multiple microservices?
+  - Rollback transaction and run compensating steps?
 - **Problems**
   - Distributed Transaction Management
   - Rollback Transaction on Distributed Environment
@@ -255,8 +262,8 @@
 - We should clearly **define functional** and **nonfunctional** requirements.
 - **Define** our **limits**, **constraints** and **assumptions** of the application and define business objectives clearly.
 - **Start** and **Grow Application** with **Metrics**
-  - How many Concurrent Users that our application handle ?
-  - What is the target of expected Requests/second Latency ?
+  - How many Concurrent Users that our application handle?
+  - What is the target of expected Requests/second Latency?
   - What level of application outage is acceptable?
 - **Business requirements drive** these **design considerations**.
 
@@ -411,3 +418,84 @@
 - **Solutions**
   - Clean Architecture.
   - The Dependecy Rule.
+
+# 7. Clean Architecture
+
+- **Separates** the elements of a design **into circle levels**.
+- **Clean architecture** was created by **Robert C. Martin** and promoted on his blog, **Uncle Bob**.
+  - [The Clean Architecture by Robert C. Martin](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
+- Organize code with encapsulates the business logic.
+- Keep the **core business logic** and application domain at the **center of the solution** structure that **independent** with presentation and data access layers.
+- Clean architecture divided into **two main elements**:
+  - **Policies:** They are the business rules and procedures
+  - **Details (mechanisms):** They are the implementation code to carry out the policies
+- Focus on the **policies** and **business logics** that build on project requirements
+- The internal layers contains the business rules and has **not dependency** of any third-party library.
+
+## 7.1. The Dependency Rule
+
+- The dependencies of a source code can only **point inwards**.
+  ![alt](/Images/CleanArchitecturePointInwards.png)
+- Code dependencies can only **move from the outer levels inward**.
+  ![alt](/Images/CleanArchitectureOuterLevelsInward.png)
+- Code on the inner layers can **have no knowledge** of functions on the outer layers.
+- Inner layer cannot **have any information** about elements of an outer layer.
+- Classes, functions, variables, data format, or any entity declared in an **outer layer** must not be mentioned by the code of an inner layer.
+
+## 7.2. Layers of Clean Architecture
+
+- **Entities** or **Enterprise Business Rules**
+  - It is includes plain domains and business rules.
+  - In this layer we add objects or entities with **NO** framework and annotations.
+- **Use Cases** or **Application Business Rules**
+  - These layer include application business rules and decision making codes.
+  - That means we develop our core business and application logic codes into this layer.
+  - In this layer, we don't know who trigger or how the result will be presented.
+  - However, based on the services, we keep business logic independent from the UI or database layers.
+- **Interface adapters, controllers and gateways**
+  - This layer is a communication layer that provides to **convert data desired format for storing into external source** like database file system, third parties, and so on.
+- **Frameworks and drivers**
+  - This is the implementation layer for infrastructure and external interfaces.
+  - This is the most outer layer in this clean architecture, which changes frequently based on the technologies, for example, updating like database, web frontend frameworks and so on.
+  - In this layer we have technology related codes that provide the actual implementation code to the UI layer and the database layer.
+
+![Clean Architecture](/Images/CleanArchitecture.png)
+![Clean Architecture cone view](/Images/CleanArchitectureCone.png)
+![Clean Architecture cone view](/Images/CleanArchitectureDependenciesInward.png)
+
+## 7.3. Benefits of Clean Architecture
+
+- **Independent of Database and Frameworks**
+  - The software is not dependent on an ORM or Database.
+  - You can change them easily.
+- **Independence of UI**
+  - The UI can change easily, without changing the rest of the system and business rules.
+- **Testable**
+  - It is naturally testable. You can test business rules without considering UI, Database, Mock servers, etc.
+- **Independence of any external agency**
+  - In fact, your business rules simply don't know anything at all about the outside world.
+
+## 7.4. Assessment Layered Monolithic Architecture
+
+- **Benefits**
+  - Easy Development, Debug and Deploy.
+  - Loosely Coupled Independent Layers.
+  - Flexible Logical Layers.
+  - Testable and Independent changable to 3rd parties libraries.
+- **Drawbacks**
+  - Layers are independent but those are technical layers:
+    - Domain, Infrastructure, Application and UI Layer
+  - Vertical business logic implementation codes required to modify all layers: i.e. add to basket, checkout order use cases
+- It is still Monolithic and has Scalability Issues
+  - How many concurrent request can accommodate our design?
+- **Solutions**
+  - Scalabilitiy
+  - Vertical and Horizontal Scaling
+  - Scale Up and Scale Out
+  - Load Balancer
+
+# 8. Vertical Slice Architecture
+
+# 9. MVC, MVP & MVVM
+
+[MVC, MVP & MVVM](https://github.com/jeftegoes/DotnetArchitectureMvcMvpMvvm)
