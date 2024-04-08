@@ -42,7 +42,11 @@
   - [7.3. Benefits of Clean Architecture](#73-benefits-of-clean-architecture)
   - [7.4. Assessment Layered Monolithic Architecture](#74-assessment-layered-monolithic-architecture)
 - [8. Vertical Slice Architecture](#8-vertical-slice-architecture)
-- [9. MVC, MVP \& MVVM](#9-mvc-mvp--mvvm)
+- [9. Scalability](#9-scalability)
+  - [9.1. Vertical Scaling - Scale up](#91-vertical-scaling---scale-up)
+  - [9.2. Horizantal Scaling - Scale out](#92-horizantal-scaling---scale-out)
+  - [9.3. Load Balancer](#93-load-balancer)
+- [10. MVC, MVP \& MVVM](#10-mvc-mvp--mvvm)
 
 # 1. Evolution of Software Architectures
 
@@ -380,6 +384,9 @@
   - Handles aspects related to accomplishing functional requirements including use case implementations.
 - **Database Layer**
   - Responsible for handling data, databases, such as a SQL database.
+- **Models**
+  - Models can be a **cross-cutting concern** between layers.
+    - **ATTENTION: Avoid Anemic domain model**
 
 ![Layered Architecture](/Images/NLayerArchitecture.png)
 
@@ -444,17 +451,17 @@
 
 ## 7.2. Layers of Clean Architecture
 
-- **Entities** or **Enterprise Business Rules**
+- **Entities** or **Enterprise Business Rules** or **Domain Layer**
   - It is includes plain domains and business rules.
   - In this layer we add objects or entities with **NO** framework and annotations.
-- **Use Cases** or **Application Business Rules**
+- **Use Cases** or **Application Business Rules** or **Application Layer**
   - These layer include application business rules and decision making codes.
   - That means we develop our core business and application logic codes into this layer.
   - In this layer, we don't know who trigger or how the result will be presented.
   - However, based on the services, we keep business logic independent from the UI or database layers.
-- **Interface adapters, controllers and gateways**
+- **Interface adapters, controllers and gateways** or **Presentation Layer and Infrastructure Layer**
   - This layer is a communication layer that provides to **convert data desired format for storing into external source** like database file system, third parties, and so on.
-- **Frameworks and drivers**
+- **Frameworks and drivers** or **Infrastructure Layer**
   - This is the implementation layer for infrastructure and external interfaces.
   - This is the most outer layer in this clean architecture, which changes frequently based on the technologies, for example, updating like database, web frontend frameworks and so on.
   - In this layer we have technology related codes that provide the actual implementation code to the UI layer and the database layer.
@@ -486,16 +493,92 @@
   - Layers are independent but those are technical layers:
     - Domain, Infrastructure, Application and UI Layer
   - Vertical business logic implementation codes required to modify all layers: i.e. add to basket, checkout order use cases
-- It is still Monolithic and has Scalability Issues
-  - How many concurrent request can accommodate our design?
+  - It is still Monolithic and has Scalability Issues
+    - How many concurrent request can accommodate our design?
 - **Solutions**
-  - Scalabilitiy
-  - Vertical and Horizontal Scaling
-  - Scale Up and Scale Out
-  - Load Balancer
+  - Scalabilitiy.
+  - Vertical and Horizontal Scaling.
+  - Scale Up and Scale Out.
+  - Load Balancer.
 
 # 8. Vertical Slice Architecture
 
-# 9. MVC, MVP & MVVM
+- **Pain Points of Clean Architecture**
+  - **Context Switching**
+    - When we were working on a feature and needed to work on any combination of data access, domain or application logic, we had to switch contexts into different software project.
+    - We had to **remember** and **re-visit codes** from other folder and continue with totally different code base.
+    - The folder structure requires DDD-bounded contexts approaches.
+  - **Vertical Slices**
+    - When adding a feature in an application, we are developing into almost all layers in the application code.
+    - Changing the user interface, adding new Use Case classes into Application Layer, adding fields to models, modifying Data Access Codes, and so on.
+    - So that means we are **highly couple** with **vertically slice** when developing features.
+- _Minimize coupling between slices, and maximize coupling in a slice._ Jimmy Bogard
+
+# 9. Scalability
+
+- How many concurrent request can accommodate in architectural software design?
+
+| Concurrent Users | Requests/second | Latency (expected) |
+| ---------------- | --------------- | ------------------ |
+| 2k               | 0.5k            |                    |
+| 20k              | 12k             |                    |
+| 100k             | 80k             | <= 2 sec           |
+| 500k             | 300k            | ?                  |
+
+- **Scalability** is the **number of requests** an application can **handle**.
+- Measured by the number of requests and it can effectively support **simultaneously**.
+- If no longer handle any more simultaneous requests, it has reached its **scalability limit**.
+- To **prevent downtime**, and **reduce latency**, you must scale.
+- **Horizontal** scaling and **vertical** scaling both involve adding resources to your computing infrastructure.
+- **Horizontal scaling** by adding more machines.
+- **Vertical scaling** by adding more power.
+
+## 9.1. Vertical Scaling - Scale up
+
+- **Vertical scaling** is basically makes the **nodes stronger**.
+- Make the server stronger with **adding more hardware**.
+  - Adding more resources to a **single node**.
+- Make **optimization** the hardware that will allow you to **handle more requests**.
+- Vertical scaling keeps your existing infrastructure but **adding more computing power**.
+- Your existing **code doesn't** need to **change**.
+- Adding additional **CPU**, **RAM**, and **DISK** to cope with an increasing workload.
+- By scaling up, you increase the capacity of a single machine.
+  - And it has limits.
+  - That is named **Scalability Limits**.
+- Because even the hardware has **maximum capacity limitations**.
+- For handling millions of request, we **need horizontal scaling** or scaling out.
+
+![Vertical Scaling](Images/VerticalScaling.png)
+
+## 9.2. Horizantal Scaling - Scale out
+
+- **Horizontal scaling** is **splitting** the load between **different servers**.
+- Simply **adds more instances** of machines without changing to existing specifications.
+- **Share** the **processing power and load balancing** across multiple machines.
+- Horizontal scaling means adding more machines to the resource pool.
+- **Scaling horizontally** gives you scalability but also **reliability**.
+- Preferred way to scale in **distributed architectures**.
+- When splitting into multiple servers, we need to consider if you have **a state or not**.
+  ![Horizantal Scaling](Images/HorizontalScaling.png)
+- If we have a state like database servers, than we need to manage more considerations like **CAP theorem**.
+  - ![CAP theorem](/Images/CAPtheorem.png)
+    - [font](https://www.geeksforgeeks.org/the-cap-theorem-in-dbms/)
+
+## 9.3. Load Balancer
+
+- **Balance the traffic** across to **all nodes** of our applications.
+- **Spread the traffic** across a **cluster** of **servers** to improve responsiveness and availability.
+- Load Balancer sits between **the client** and **the server**.
+- Load Balancer is **accepting incoming network** and application traffic.
+- **Distributing the traffic** across multiple backend servers using different algorithms.
+- Load Balancers should **be fault tolerance** and **improves availability**.
+- Mostly uses the **consistent hashing** algorithms.
+  - Consistent hashing is an algorithms for **dividing up data** between multiple machines.
+- It solves the horizontal scalability problems.
+  - Don't have to **re-arrange** all the keys.
+
+![Load Balancer](/Images/LoadBalancer.png)
+
+# 10. MVC, MVP & MVVM
 
 [MVC, MVP & MVVM](https://github.com/jeftegoes/DotnetArchitectureMvcMvpMvvm)
