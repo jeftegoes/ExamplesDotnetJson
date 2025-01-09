@@ -30,23 +30,25 @@
   - [5.4. Challenges of Monolithic Architecture](#54-challenges-of-monolithic-architecture)
   - [5.5. Design principles - KISS, YAGNI, DRY](#55-design-principles---kiss-yagni-dry)
   - [5.6. Assessment Monolithic Architecture](#56-assessment-monolithic-architecture)
-- [6. Layered (N-Layer) Architecture](#6-layered-n-layer-architecture)
-  - [6.1. Components of a Layered Architecture](#61-components-of-a-layered-architecture)
-  - [6.2. Design principles - Separation of Concerns (SoC)](#62-design-principles---separation-of-concerns-soc)
-  - [6.3. Design principles - SOLID](#63-design-principles---solid)
-  - [6.4. Layered Monolithic Architecture evolution](#64-layered-monolithic-architecture-evolution)
-  - [6.5. Assessment Layered Monolithic Architecture](#65-assessment-layered-monolithic-architecture)
-- [7. Clean Architecture](#7-clean-architecture)
-  - [7.1. The Dependency Rule](#71-the-dependency-rule)
-  - [7.2. Layers of Clean Architecture](#72-layers-of-clean-architecture)
-  - [7.3. Benefits of Clean Architecture](#73-benefits-of-clean-architecture)
-  - [7.4. Assessment Layered Monolithic Architecture](#74-assessment-layered-monolithic-architecture)
-- [8. Vertical Slice Architecture](#8-vertical-slice-architecture)
-- [9. Scalability](#9-scalability)
-  - [9.1. Vertical Scaling - Scale up](#91-vertical-scaling---scale-up)
-  - [9.2. Horizantal Scaling - Scale out](#92-horizantal-scaling---scale-out)
-  - [9.3. Load Balancer](#93-load-balancer)
-- [10. MVC, MVP \& MVVM](#10-mvc-mvp--mvvm)
+- [6. Intent Driven Architecture](#6-intent-driven-architecture)
+- [7. Technologies Driven Architecture](#7-technologies-driven-architecture)
+- [8. Layered (N-Layer) Architecture](#8-layered-n-layer-architecture)
+  - [8.1. Components of a Layered Architecture](#81-components-of-a-layered-architecture)
+  - [8.2. Design principles - Separation of Concerns (SoC)](#82-design-principles---separation-of-concerns-soc)
+  - [8.3. Design principles - SOLID](#83-design-principles---solid)
+  - [8.4. Layered Monolithic Architecture evolution](#84-layered-monolithic-architecture-evolution)
+  - [8.5. Assessment Layered Monolithic Architecture](#85-assessment-layered-monolithic-architecture)
+- [9. Clean Architecture](#9-clean-architecture)
+  - [9.1. The Dependency Rule](#91-the-dependency-rule)
+  - [9.2. Layers of Clean Architecture](#92-layers-of-clean-architecture)
+  - [9.3. Benefits of Clean Architecture](#93-benefits-of-clean-architecture)
+  - [9.4. Assessment Layered Monolithic Architecture](#94-assessment-layered-monolithic-architecture)
+- [10. Vertical Slice Architecture](#10-vertical-slice-architecture)
+- [11. Scalability](#11-scalability)
+  - [11.1. Vertical Scaling - Scale up](#111-vertical-scaling---scale-up)
+  - [11.2. Horizantal Scaling - Scale out](#112-horizantal-scaling---scale-out)
+  - [11.3. Load Balancer](#113-load-balancer)
+- [12. MVC, MVP \& MVVM](#12-mvc-mvp--mvvm)
 
 # 1. Evolution of Software Architectures
 
@@ -366,17 +368,26 @@
   - Layered Architecture.
   - SOLID Design.
 
-# 6. Layered (N-Layer) Architecture
+# 6. Intent Driven Architecture
+
+TODO: EXAMPLE OF FOLDER HERE
+
+# 7. Technologies Driven Architecture
+
+TODO: EXAMPLE OF FOLDER HERE
+
+# 8. Layered (N-Layer) Architecture
 
 - The layered architecture pattern is the most commonly used architecture pattern.
 - Known as the **n-tier architecture style** or **the multi-layered architecture style**.
+  - A **data-centric** design
 - Organize the components of an application with similar functionalities into **horizontal logical layers**.
   - Each layer performs a specific role within the application.
 - Still using Monolithic architecture separating horizontal logical layers, components are interconnected but **don't depend** on each other. **(Attention point)**
 - Organizing code for **separation of concerns (SoC)**.
 - **Layers of isolation** that layers can be modified and the change won't affect other layers.
 
-## 6.1. Components of a Layered Architecture
+## 8.1. Components of a Layered Architecture
 
 - **Presentation Layer**
   - Responsible for user interactions with the software system, for example, a web app.
@@ -390,7 +401,9 @@
 
 ![Layered Architecture](/Images/NLayerArchitecture.png)
 
-## 6.2. Design principles - Separation of Concerns (SoC)
+TODO: EXAMPLE OF FOLDER HERE
+
+## 8.2. Design principles - Separation of Concerns (SoC)
 
 - **Separation of concerns(SoC)** is one of the core software design principle.
 - Separation of concerns is a design principle for separating a computer program into **distinct sections**.
@@ -402,15 +415,15 @@
 
 ![Separation of Concerns other points of view](/Images/SeparationConcernsOtherPointsOfView.png)
 
-## 6.3. Design principles - SOLID
+## 8.3. Design principles - SOLID
 
 [SOLID](https://github.com/jeftegoes/SolidDesignPrinciplesOverviewAndExamples)
 
-## 6.4. Layered Monolithic Architecture evolution
+## 8.4. Layered Monolithic Architecture evolution
 
 ![Layered Monolithic Architecture evolution](/Images/MonolithicArchitectureEvolution.png)
 
-## 6.5. Assessment Layered Monolithic Architecture
+## 8.5. Assessment Layered Monolithic Architecture
 
 - **Benefits**
   - Easy Development, Debug and Deploy.
@@ -422,14 +435,17 @@
   - Hard to maintanance.
   - Complexity of codebase.
   - Hard to Change libraries; i.e. Change orm tool with different library Requires to modify business layer.
+  - Lack of intent.
+  - Leaks of logic.
 - **Solutions**
   - Clean Architecture.
   - The Dependecy Rule.
 
-# 7. Clean Architecture
+# 9. Clean Architecture
 
 - **Separates** the elements of a design **into circle levels**.
 - **Clean architecture** was created by **Robert C. Martin** and promoted on his blog, **Uncle Bob**.
+  - Also known as **Onion Architecture**.
   - [The Clean Architecture by Robert C. Martin](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 - Organize code with encapsulates the business logic.
 - Keep the **core business logic** and application domain at the **center of the solution** structure that **independent** with presentation and data access layers.
@@ -439,7 +455,7 @@
 - Focus on the **policies** and **business logics** that build on project requirements
 - The internal layers contains the business rules and has **not dependency** of any third-party library.
 
-## 7.1. The Dependency Rule
+## 9.1. The Dependency Rule
 
 - The dependencies of a source code can only **point inwards**.
   ![alt](/Images/CleanArchitecturePointInwards.png)
@@ -449,7 +465,7 @@
 - Inner layer cannot **have any information** about elements of an outer layer.
 - Classes, functions, variables, data format, or any entity declared in an **outer layer** must not be mentioned by the code of an inner layer.
 
-## 7.2. Layers of Clean Architecture
+## 9.2. Layers of Clean Architecture
 
 - **Entities** or **Enterprise Business Rules** or **Domain Layer**
   - It is includes plain domains and business rules.
@@ -470,7 +486,7 @@
 ![Clean Architecture cone view](/Images/CleanArchitectureCone.png)
 ![Clean Architecture cone view](/Images/CleanArchitectureDependenciesInward.png)
 
-## 7.3. Benefits of Clean Architecture
+## 9.3. Benefits of Clean Architecture
 
 - **Independent of Database and Frameworks**
   - The software is not dependent on an ORM or Database.
@@ -482,7 +498,7 @@
 - **Independence of any external agency**
   - In fact, your business rules simply don't know anything at all about the outside world.
 
-## 7.4. Assessment Layered Monolithic Architecture
+## 9.4. Assessment Layered Monolithic Architecture
 
 - **Benefits**
   - Easy Development, Debug and Deploy.
@@ -501,7 +517,7 @@
   - Scale Up and Scale Out.
   - Load Balancer.
 
-# 8. Vertical Slice Architecture
+# 10. Vertical Slice Architecture
 
 - **Pain Points of Clean Architecture**
   - **Context Switching**
@@ -514,7 +530,7 @@
     - So that means we are **highly couple** with **vertically slice** when developing features.
 - _Minimize coupling between slices, and maximize coupling in a slice._ Jimmy Bogard
 
-# 9. Scalability
+# 11. Scalability
 
 - How many concurrent request can accommodate in architectural software design?
 
@@ -533,7 +549,7 @@
 - **Horizontal scaling** by adding more machines.
 - **Vertical scaling** by adding more power.
 
-## 9.1. Vertical Scaling - Scale up
+## 11.1. Vertical Scaling - Scale up
 
 - **Vertical scaling** is basically makes the **nodes stronger**.
 - Make the server stronger with **adding more hardware**.
@@ -550,7 +566,7 @@
 
 ![Vertical Scaling](Images/VerticalScaling.png)
 
-## 9.2. Horizantal Scaling - Scale out
+## 11.2. Horizantal Scaling - Scale out
 
 - **Horizontal scaling** is **splitting** the load between **different servers**.
 - Simply **adds more instances** of machines without changing to existing specifications.
@@ -564,7 +580,7 @@
   - ![CAP theorem](/Images/CAPtheorem.png)
     - [font](https://www.geeksforgeeks.org/the-cap-theorem-in-dbms/)
 
-## 9.3. Load Balancer
+## 11.3. Load Balancer
 
 - **Balance the traffic** across to **all nodes** of our applications.
 - **Spread the traffic** across a **cluster** of **servers** to improve responsiveness and availability.
@@ -579,6 +595,6 @@
 
 ![Load Balancer](/Images/LoadBalancer.png)
 
-# 10. MVC, MVP & MVVM
+# 12. MVC, MVP & MVVM
 
 [MVC, MVP & MVVM](https://github.com/jeftegoes/DotnetArchitectureMvcMvpMvvm)
